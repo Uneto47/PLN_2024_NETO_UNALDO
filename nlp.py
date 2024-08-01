@@ -1,9 +1,13 @@
+import os
 import requests
 import pandas as pd
 from chromadb import Client
+from dotenv import load_dotenv
+load_dotenv()
+
 
 API_URL = "https://api-inference.huggingface.co/models/intfloat/multilingual-e5-small"
-HUGGINGFACE_TOKEN = ""
+HUGGINGFACE_TOKEN = os.getenv("TOKEN")
 DATA_URL = "https://olinda.bcb.gov.br/olinda/servico/mecir_dinheiro_em_circulacao/versao/v1/odata/informacoes_diarias_com_categoria?$top=500&$format=json"
 
 def get_embeddings(sentences, source):
