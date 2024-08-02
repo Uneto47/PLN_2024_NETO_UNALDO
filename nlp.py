@@ -39,14 +39,18 @@ def create_sentences(row):
  
 def main():
     sentences = fetch_data()
-    query_sentence = "'Categoria: Moedas - 1a. família'"
+
+    query_sentence = input("Digite a consulta: ")
+    
+    
     embeddings = get_embeddings(sentences, query_sentence)
     
     collection = init_chromadb()
+    
     add_embeddings_to_chromadb(collection, sentences, embeddings)
     
     results = collection.query(
-        query_embeddings=[1],
+        query_embeddings=[1.0],
         n_results=3
     )
     
