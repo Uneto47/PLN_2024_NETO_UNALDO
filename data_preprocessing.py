@@ -1,11 +1,11 @@
-import requests
+import json
 import pandas as pd
 
-DATA_URL = "https://olinda.bcb.gov.br/olinda/servico/mecir_dinheiro_em_circulacao/versao/v1/odata/informacoes_diarias_com_categoria?$top=1000&$format=json"
+LOCAL_JSON_PATH = "inform_500.json"
 
 def fetch_data():
-    response = requests.get(DATA_URL)
-    data = response.json()
+    with open(LOCAL_JSON_PATH, 'r', encoding='utf-8') as f:
+        data = json.load(f)
     df = pd.DataFrame(data['value'])
     columns = ['Data', 'Valor', 'Categoria', 'Denominacao']
     df = df[columns]
