@@ -59,3 +59,10 @@ Este projeto utiliza embeddings de frases para buscar documentos em um banco de 
 - `data_preprocessing.py`: Funções para carregar e preparar os dados.
 - `embedding_utils.py`: Funções para gerar embeddings usando um modelo de `sentence-transformers`.
 - `main.py`: Script principal para executar o processo completo.
+
+## Visualização do tutorial
+
+Para visualização de um arquivo de documentação, acesse o seguinte link:
+
+[Visualizar Documento](https://docs.google.com/document/d/1JU36ZxkftnKgyxjzxs9FLe4ms0a_K3QYtjeWORcCUIw/edit)
+```
