@@ -30,11 +30,11 @@ def main(reload_data=False):
         n_results=3
     )
     
-    print(results)
+    # print(results)
         
     if results and 'documents' and 'distances' in results and results['distances'] and results['documents']:
         for i, (document, distance) in enumerate(zip(results['documents'][0], results["distances"][0])):
-            print(f"|{i+1}°|score: {distance} |{document}")
+            print(f"|{i+1}°| Distância: {distance:.4f} |{document}")
     else:
         print("Nenhum documento encontrado nos resultados.")
 
