@@ -65,4 +65,3 @@ Este projeto utiliza embeddings de frases para buscar documentos em um banco de 
 Para visualização de um arquivo de documentação, acesse o seguinte link:
 
 [Visualizar Documento](https://docs.google.com/document/d/1JU36ZxkftnKgyxjzxs9FLe4ms0a_K3QYtjeWORcCUIw/edit)
-```
