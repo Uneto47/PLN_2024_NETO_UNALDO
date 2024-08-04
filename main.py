@@ -1,9 +1,6 @@
-from dotenv import load_dotenv
 from data_preprocessing import fetch_data
 from embedding_utils import get_embeddings
 from db_utils import init_chromadb, add_embeddings_to_chromadb
-
-load_dotenv()
 
 def main(reload_data=False):
     
