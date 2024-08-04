@@ -21,10 +21,9 @@ def main(reload_data=False):
     else:
         print("A coleção já contém dados recentes. Você pode pular a etapa de carregamento de dados.")
     
-    query_sentence = "Data: 2019-09-13, Valor: 19980000.0, Categoria: Moedas - 2a. Família - Natação, Denominacao: 1.00"
-    query_embedding_list = get_embeddings([query_sentence])  # Acessa o primeiro tensor na lista
-    # print(query_embedding_list)
-    query_embedding = query_embedding_list[0].tolist()
+    query_sentence = "Futebol"
+    query_embedding_list = get_embeddings([query_sentence])[0]  # Acessa o primeiro tensor na lista
+    query_embedding = query_embedding_list.squeeze().tolist()
     
     results = collection.query(
         query_embeddings=[query_embedding],
@@ -32,10 +31,10 @@ def main(reload_data=False):
     )
     
     print(results)
-    
-    if results and 'documents' in results and results['documents']:
-        for i, document in enumerate(results['documents'][0]):
-            print(f"{i+1}°", document)
+        
+    if results and 'documents' and 'distances' in results and results['distances'] and results['documents']:
+        for i, (document, distance) in enumerate(zip(results['documents'][0], results["distances"][0])):
+            print(f"|{i+1}°|score: {distance} |{document}")
     else:
         print("Nenhum documento encontrado nos resultados.")
 
