@@ -5,7 +5,7 @@ from db_utils import init_chromadb, add_embeddings_to_chromadb
 def main(reload_data=False):
     
     db_path = "/path/to/save/to"
-    collection_name = "banco"
+    collection_name = "economic"
     
     collection = init_chromadb(db_path, collection_name)
     
@@ -18,8 +18,8 @@ def main(reload_data=False):
     else:
         print("A coleção já contém dados recentes. Você pode pular a etapa de carregamento de dados.")
     
-    query_sentence = "Futebol"
-    query_embedding_list = get_embeddings([query_sentence])[0]  # Acessa o primeiro tensor na lista
+    query_sentence = input("Digite aqui sua consulta: ")
+    query_embedding_list = get_embeddings([query_sentence])[0]
     query_embedding = query_embedding_list.squeeze().tolist()
     
     results = collection.query(
